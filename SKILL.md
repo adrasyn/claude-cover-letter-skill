@@ -14,7 +14,7 @@ Generate a tailored cover letter by cross-referencing CVs, past cover letters, a
 - `source-materials/cv-long.docx` — Long CV (full academic/detailed history)
 - `source-materials/cover-letters/original/` — Hand-written cover letters (gold standard for voice and tone)
 - `source-materials/cover-letters/successful/` — Generated letters that landed interviews (supplementary reference)
-- `applications/YYYY-MM-DD-company-role/` — Per-application output folder
+- `applications/YYYY-MM-DD-company-role/` — Per-application output folder containing: `job-description.*`, `notes.md`, `research.md`, `cover-letter.md`, `cover-letter.docx`
 - `applications-log.csv` — Tracker: date, company, role, status, priority, folder, notes
 
 ## Phase 1: Startup
@@ -43,7 +43,27 @@ Generate a tailored cover letter by cross-referencing CVs, past cover letters, a
    - File: copy the original into the folder
    - URL: fetch with WebFetch and save as `job-description.html`
 
-## Phase 2: Reading & Extraction
+## Phase 2: Company Research
+
+After the application folder is created and the JD is saved, research the company to inform later analysis.
+
+1. Run 2-3 `WebSearch` queries:
+   - `"<company name>" recent news strategy 2025 2026`
+   - `"<company name>" values culture mission`
+   - If the role mentions a specific department or programme, one targeted search for that
+
+2. Synthesise findings into a brief research summary covering:
+   - **Recent news** — What has the organisation been doing lately?
+   - **Strategic priorities** — What are they focused on?
+   - **Values and culture** — How do they describe themselves?
+
+3. Save the summary to `applications/<folder>/research.md`.
+
+4. If WebSearch fails or returns thin results, note this in `research.md` and continue. The skill should never block on research.
+
+This research feeds into Phase 4 (Analysis) — it helps identify which aspects of the user's experience to emphasise and what language and framing to use.
+
+## Phase 3: Reading & Extraction
 
 Before extraction, verify that `cv-short.docx` and `cv-long.docx` exist and that `source-materials/cover-letters/original/` contains at least one file. If any are missing, inform the user and halt.
 
@@ -63,7 +83,7 @@ Read, in order:
 
 Do NOT read cover letters from individual `applications/` folders as source material — only use `original/` and `successful/` to prevent AI voice drift.
 
-## Phase 3: Analysis
+## Phase 4: Analysis
 
 Parse the job description into structured criteria grouped as:
 - **Required Qualifications**
@@ -77,7 +97,9 @@ Cross-reference each criterion against ALL source materials (both CVs and all co
 - **Partial match** — Relevant experience exists but needs expansion. Note what's there and what's missing.
 - **No match** — No evidence found. Flag for user input.
 
-## Phase 4: Interactive Gap-Filling
+Also use the company research from Phase 2 (`research.md`) to inform which criteria to weight most heavily and what framing/language will resonate with this organisation.
+
+## Phase 5: Interactive Gap-Filling
 
 ### Thorough Mode
 
@@ -92,7 +114,7 @@ Cross-reference each criterion against ALL source materials (both CVs and all co
 2. For partial matches, use best-available content from source materials without asking.
 3. If there are no critical gaps, skip straight to drafting.
 
-## Phase 5: Drafting
+## Phase 6: Drafting
 
 Write the cover letter with these constraints:
 
@@ -102,16 +124,39 @@ Write the cover letter with these constraints:
 - **Length**: Match the length of the user's existing cover letters unless the job explicitly requests otherwise.
 - **Sector awareness**: These are primarily government and public sector applications. Also handles consulting, public policy, and government relations roles. Use appropriate register -- professional but not corporate-buzzwordy.
 
+### Red Team Review
+
+After writing the draft and before presenting it to the user, run a critical self-review:
+
+1. **Argument strength:**
+   - Are claims backed by specific evidence and examples, not just assertions?
+   - Are outcomes concrete and measurable where possible? (e.g. "improved X by Y%" not "made significant improvements")
+   - Does each paragraph advance the case, or is any filler?
+   - Are the strongest selling points given enough prominence?
+
+2. **Voice authenticity:**
+   - Compare the draft's tone against the user's original hand-written letters.
+   - Flag any phrases that sound like generic AI cover letter language (e.g. "I am excited to apply", "I believe I would be a valuable asset", "leveraging my expertise").
+   - Check the register matches the sector (professional but not corporate-buzzwordy for government roles).
+
+3. **Overall tightness:**
+   - Flag vague or generic phrasing that could apply to any candidate.
+   - Identify sentences that could be cut or combined without losing substance.
+   - Check the opening and closing are strong — not boilerplate.
+
+Present the review as a numbered list of specific, actionable findings. Each finding should reference the relevant paragraph or sentence and suggest a concrete improvement.
+
 Steps:
-1. Present the full draft to the user.
-2. Ask if they want changes. Iterate until approved.
-3. Save approved letter as `applications/<folder>/cover-letter.md`.
-4. Convert to docx:
+1. Run the red team review (above).
+2. Present the full draft AND the review findings to the user.
+3. Ask if they want changes. Iterate until approved.
+4. Save approved letter as `applications/<folder>/cover-letter.md`.
+5. Convert to docx:
    ```bash
    pandoc -f markdown -t docx -o "applications/<folder>/cover-letter.docx" "applications/<folder>/cover-letter.md"
    ```
 
-## Phase 6: Wrap-up
+## Phase 7: Wrap-up
 
 1. Append a row to `applications-log.csv`:
    ```bash
@@ -120,8 +165,3 @@ Steps:
    Use today's actual date, the real company/role names, and the folder name created earlier.
 
 2. Print: **"Don't forget to update the status in applications-log.csv when you hear back!"**
-
-## Future Features
-
-- [ ] **Company research step** — After receiving the company name and JD, do a web search of the company (recent news, culture, strategic priorities) and search for advice on writing successful applications to that specific organisation. Use findings to inform the analysis and drafting phases.
-- [ ] **Red team review** — After the draft is complete and before presenting to the user, run a critical review pass: identify areas for improvement, flag unclear language, suggest ways to make outcomes more concrete and impactful, check for vague or generic phrasing, and tighten the overall argument. Present the review findings alongside the draft.
