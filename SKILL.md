@@ -220,11 +220,14 @@ After writing the draft and before presenting it to the user, run a critical sel
 Present the review as a numbered list of specific, actionable findings. Each finding should reference the relevant paragraph or sentence and suggest a concrete improvement.
 
 Steps:
-1. Run the red team review (above).
-2. Present the full draft AND the review findings to the user.
-3. Ask if they want changes. Iterate until approved.
-4. Save approved letter as `applications/<folder>/cover-letter.md`.
-5. Convert to docx:
+1. Save the draft as `applications/<folder>/cover-letter.md`.
+2. Present the draft to the user and ask: **"Here's the draft — I've saved it to `cover-letter.md`. Feel free to open the file and make any edits you'd like before I run the red team analysis. Let me know when you're ready."** Wait for the user to respond before continuing.
+3. Re-read `applications/<folder>/cover-letter.md` to pick up any changes the user made.
+4. Run the red team review (above) against the current version of the file.
+5. Present the red team findings to the user.
+6. Ask if they want further changes. Iterate until approved.
+7. Save the final approved letter as `applications/<folder>/cover-letter.md`.
+8. Convert to docx:
    ```bash
    pandoc -f markdown -t docx -o "applications/<folder>/cover-letter.docx" "applications/<folder>/cover-letter.md"
    ```
