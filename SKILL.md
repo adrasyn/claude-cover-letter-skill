@@ -16,6 +16,7 @@ Generate a tailored cover letter by cross-referencing CVs, past cover letters, a
 - `source-materials/cover-letters/successful/` — Generated letters that landed interviews (supplementary reference)
 - `applications/YYYY-MM-DD-company-role/` — Per-application output folder containing: `job-description.*`, `notes.md`, `research.md`, `cover-letter-draft.md` (Review mode only — the user's original letter), `cover-letter.md`, `cover-letter.docx`
 - `applications-log.csv` — Tracker: date, company, role, status, priority, folder, notes
+- `profile.md` — User profile (sector/field, created during first-time setup)
 
 ## Phase 0: First-Time Setup
 
@@ -28,6 +29,7 @@ This phase runs silently before every session. If the workspace is already set u
    - `source-materials/cover-letters/successful/`
    - `applications/`
    - `applications-log.csv`
+   - `profile.md`
 
 2. **If everything exists** — skip to Phase 1 immediately (no output).
 
@@ -36,6 +38,11 @@ This phase runs silently before every session. If the workspace is already set u
    - Create `applications-log.csv` with the header row if it doesn't exist:
      ```
      date,company,role,status,mode,folder,notes
+     ```
+   - Ask the user: **"What sector or field do you work in?"** (e.g. government & public sector, consulting, tech, finance, academia, non-profit). Use their answer to create `profile.md`:
+     ```markdown
+     # Profile
+     - **Sector**: <their answer>
      ```
    - Tell the user which files they still need to add manually:
      - `source-materials/cv-short.docx` — Short CV (1-2 pages, the version submitted to employers)
@@ -221,7 +228,7 @@ Write the cover letter with these constraints:
 - **Structure**: Follow conventions from existing letters (greeting style, paragraph structure, sign-off).
 - **Content**: Map strong matches directly. Incorporate user's answers for partial/no matches. Weave in specific examples from the long CV where they strengthen the case.
 - **Length**: Match the length of the user's existing cover letters unless the job explicitly requests otherwise.
-- **Sector awareness**: These are primarily government and public sector applications. Also handles consulting, public policy, and government relations roles. Use appropriate register -- professional but not corporate-buzzwordy.
+- **Sector awareness**: Read the user's sector from `profile.md` and use the appropriate register. Match the tone to the sector (e.g. professional but not corporate-buzzwordy for government; concise and results-oriented for consulting; technical precision for tech roles).
 
 ### Red Team Review
 
@@ -236,7 +243,7 @@ After writing the draft and before presenting it to the user, run a critical sel
 2. **Voice authenticity:**
    - Compare the draft's tone against the user's original hand-written letters.
    - Flag any phrases that sound like generic AI cover letter language (e.g. "I am excited to apply", "I believe I would be a valuable asset", "leveraging my expertise").
-   - Check the register matches the sector (professional but not corporate-buzzwordy for government roles).
+   - Check the register matches the user's sector (from `profile.md`).
 
 3. **Overall tightness:**
    - Flag vague or generic phrasing that could apply to any candidate.
