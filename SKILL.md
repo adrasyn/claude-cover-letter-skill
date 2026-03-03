@@ -1,6 +1,6 @@
 ---
 name: cover-letter
-description: Use when the user wants to write or generate a cover letter for a job application. Triggers on requests to apply for jobs, draft cover letters, or customize application materials.
+description: Use when the user wants to write, review, or generate a cover letter for a job application. Triggers on requests to apply for jobs, draft cover letters, review existing cover letters, or customize application materials.
 argument-hint: [company-name] [role-title]
 ---
 
@@ -14,7 +14,7 @@ Generate a tailored cover letter by cross-referencing CVs, past cover letters, a
 - `source-materials/cv-long.docx` — Long CV (full academic/detailed history)
 - `source-materials/cover-letters/original/` — Hand-written cover letters (gold standard for voice and tone)
 - `source-materials/cover-letters/successful/` — Generated letters that landed interviews (supplementary reference)
-- `applications/YYYY-MM-DD-company-role/` — Per-application output folder containing: `job-description.*`, `notes.md`, `research.md`, `cover-letter.md`, `cover-letter.docx`
+- `applications/YYYY-MM-DD-company-role/` — Per-application output folder containing: `job-description.*`, `notes.md`, `research.md`, `cover-letter-draft.md` (Review mode only — the user's original letter), `cover-letter.md`, `cover-letter.docx`
 - `applications-log.csv` — Tracker: date, company, role, status, priority, folder, notes
 
 ## Phase 1: Startup
