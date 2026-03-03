@@ -129,6 +129,62 @@ Also use the company research from Phase 2 (`research.md`) to inform which crite
 3. For no-match items that are asked about, use the same suggestion format as Thorough mode.
 4. If there are no critical gaps, skip straight to drafting.
 
+## Phase 5R: Review (Review mode only)
+
+When Review mode is selected, skip Phase 5 (gap-filling) and Phase 6 (drafting). Run this phase instead.
+
+### 1. Coverage Analysis
+
+Using the structured criteria from Phase 4, evaluate the user's cover letter (`cover-letter-draft.md`) against each criterion:
+
+- **Addressed strongly** — The letter makes a clear, evidence-backed case for this criterion.
+- **Addressed weakly** — It's mentioned but vague, unsupported, or undercooked.
+- **Missing** — The criterion isn't addressed at all, but the user's source materials contain relevant experience that could be used.
+
+Present as a summary table (criterion, coverage status, notes).
+
+### 2. Red Team Review
+
+Run the same three-part critical review as Phase 6's Red Team Review, but assessed against the user's letter rather than a generated draft:
+
+1. **Argument strength:**
+   - Are claims backed by specific evidence and examples, not just assertions?
+   - Are outcomes concrete and measurable where possible?
+   - Does each paragraph advance the case, or is any filler?
+   - Are the strongest selling points given enough prominence?
+
+2. **Voice authenticity:**
+   - Compare the letter's tone against the user's other original hand-written letters in `source-materials/cover-letters/original/`.
+   - Flag any phrases that sound generic or formulaic.
+   - Check the register matches the sector.
+
+3. **Overall tightness:**
+   - Flag vague or generic phrasing that could apply to any candidate.
+   - Identify sentences that could be cut or combined without losing substance.
+   - Check the opening and closing are strong — not boilerplate.
+
+Present findings as a numbered list of specific, actionable items referencing the relevant paragraph or sentence.
+
+### 3. Targeted Edits
+
+For each item flagged as **addressed weakly** or **missing** in the coverage analysis, and for each red team finding, offer a specific rewrite of just that section:
+
+- Replacement paragraph or sentence, not a full rewrite of the letter.
+- Draw on the user's source materials (CVs, other cover letters) and company research to provide concrete evidence and framing.
+- Match the user's voice as closely as possible by referencing their original hand-written letters.
+
+### 4. Present and Iterate
+
+1. Present all three together: coverage table, red team findings, and targeted edits.
+2. Ask the user which edits to incorporate. Iterate until approved.
+3. Save the final version as `applications/<folder>/cover-letter.md`.
+4. Convert to docx:
+   ```bash
+   pandoc -f markdown -t docx -o "applications/<folder>/cover-letter.docx" "applications/<folder>/cover-letter.md"
+   ```
+
+After this phase, skip Phase 6 and proceed directly to Phase 7 (Wrap-up).
+
 ## Phase 6: Drafting
 
 Write the cover letter with these constraints:
