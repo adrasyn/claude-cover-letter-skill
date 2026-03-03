@@ -35,9 +35,17 @@ claude skill add --name cover-letter https://github.com/adrasyn/claude-cover-let
 
 Or manually copy `SKILL.md` to `.claude/skills/cover-letter/SKILL.md` in your project.
 
-## Directory setup
+## Getting started
 
-The skill expects this structure in your project root:
+The first time you run `/cover-letter` in a new workspace, **Phase 0** detects the missing structure and walks you through setup:
+
+1. Creates all required directories and the application tracker CSV
+2. Asks what **sector or field** you work in (saved to `profile.md` — used to tune tone and register)
+3. Tells you which files to add manually (CVs and at least one hand-written cover letter)
+
+Once setup is complete, Phase 0 is silent on subsequent runs.
+
+### Expected directory structure
 
 ```
 source-materials/
@@ -48,12 +56,7 @@ source-materials/
     successful/          # Generated letters that landed interviews (auto-populated)
 applications/            # Per-application output folders (auto-created)
 applications-log.csv     # Application tracker (auto-created)
-```
-
-Create the CSV with this header:
-
-```csv
-date,company,role,status,priority,folder,notes
+profile.md               # Your sector/field (auto-created during setup)
 ```
 
 ## Usage
@@ -62,10 +65,6 @@ date,company,role,status,priority,folder,notes
 /cover-letter
 /cover-letter "Company Name" "Role Title"
 ```
-
-## Customisation
-
-The skill is designed to be adapted to your sector. Edit the **Sector awareness** line in `SKILL.md` to match your field — the default is tuned for government, public sector, consulting, and public policy roles.
 
 ## License
 
