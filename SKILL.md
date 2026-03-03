@@ -233,7 +233,7 @@ Steps:
 
 1. Append a row to `applications-log.csv`:
    ```bash
-   echo "YYYY-MM-DD,\"<company>\",\"<role>\",draft,<thorough|fast>,<folder-name>," >> applications-log.csv
+   echo "YYYY-MM-DD,\"<company>\",\"<role>\",draft,<thorough|fast|review>,<folder-name>," >> applications-log.csv
    ```
    Use today's actual date, the real company/role names, and the folder name created earlier.
 
