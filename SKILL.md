@@ -109,18 +109,25 @@ Also use the company research from Phase 2 (`research.md`) to inform which crite
 
 ## Phase 5: Interactive Gap-Filling
 
+**Applies to Thorough and Fast modes only.** Review mode skips to Phase 5R.
+
 ### Thorough Mode
 
 1. Present the full gap analysis as a summary table (criterion, match status, evidence source).
-2. For each **partial match**: ask the user to write a few sentences expanding on their relevant experience. Ask one at a time.
-3. For each **no match**: ask if they have relevant experience the analysis might have missed.
-4. Save all Q&A to `applications/<folder>/notes.md`.
+2. For each **partial match**: present what was found in the source materials and offer a concrete suggestion for how to frame it, then ask the user to expand. Ask one gap at a time. Format:
+   > **Partial match — [Criterion]**
+   > Your CV mentions [specific experience from materials]. Could you expand on that? For example, you could frame [aspect of their experience] as [suggested framing] — that would align well with [company]'s emphasis on [relevant priority from research.md].
+3. For each **no match**: search the long CV for adjacent experience or transferable skills and suggest a connection, then ask if it resonates. Format:
+   > **No match — [Criterion]**
+   > I didn't find a direct match, but your work on [X] involved [Y], which could be relevant here. Does that resonate, or do you have other experience I might have missed?
+4. Save all Q&A (including the suggestions offered) to `applications/<folder>/notes.md`.
 
 ### Fast Mode
 
 1. Only ask about **no match** items where no reasonable inference can be made from existing materials.
-2. For partial matches, use best-available content from source materials without asking.
-3. If there are no critical gaps, skip straight to drafting.
+2. For partial matches, use best-available content from source materials without asking. Still generate the framing suggestions internally to inform the draft.
+3. For no-match items that are asked about, use the same suggestion format as Thorough mode.
+4. If there are no critical gaps, skip straight to drafting.
 
 ## Phase 6: Drafting
 
