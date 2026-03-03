@@ -187,6 +187,8 @@ After this phase, skip Phase 6 and proceed directly to Phase 7 (Wrap-up).
 
 ## Phase 6: Drafting
 
+**Applies to Thorough and Fast modes only.** Review mode uses Phase 5R instead.
+
 Write the cover letter with these constraints:
 
 - **Voice and tone**: Match the user's original hand-written cover letters. These are the gold standard. Do NOT default to generic AI cover letter style.
