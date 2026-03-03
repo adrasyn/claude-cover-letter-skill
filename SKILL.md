@@ -27,9 +27,10 @@ Generate a tailored cover letter by cross-referencing CVs, past cover letters, a
    ```
    If `cover-letter.md` is not found in an application folder, skip that entry and inform the user.
 
-3. Ask the user: **Thorough or Fast mode?**
+3. Ask the user: **Thorough, Fast, or Review mode?**
    - **Thorough**: Full interactive Q&A, best for high-priority applications.
    - **Fast**: Minimal questions, uses best-available material, good for bulk applications.
+   - **Review**: Critique an existing hand-written cover letter against the JD. Produces feedback and targeted edits rather than a new draft.
 
 4. Ask for the **job description**. Offer three options:
    - Paste the text directly
@@ -42,6 +43,12 @@ Generate a tailored cover letter by cross-referencing CVs, past cover letters, a
    - Pasted text: save as `job-description.md`
    - File: copy the original into the folder
    - URL: fetch with WebFetch and save as `job-description.html`
+
+7. **Review mode only** — Ask for the **existing cover letter** to review. Offer the same three input options as the JD:
+   - Paste the text directly
+   - Provide a file path (`.html`, `.docx`, `.pdf`)
+   - Provide a URL to fetch
+   Save the letter into the application folder as `cover-letter-draft.md` (converting to plain text first if needed, using the same extraction commands from Phase 3).
 
 ## Phase 2: Company Research
 
