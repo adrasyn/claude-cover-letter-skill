@@ -7,13 +7,18 @@ A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that gener
 When you run `/cover-letter`, the skill:
 
 1. **Reads your source materials** — CVs, hand-written cover letters, and any previously successful generated letters
-2. **Parses the job description** into structured criteria (qualifications, skills, values, responsibilities)
-3. **Cross-references** each criterion against your materials, classifying matches as strong, partial, or missing
-4. **Fills gaps interactively** — asks you targeted questions about partial/no matches
-5. **Drafts a cover letter** that matches your voice and tone (from your original letters), maps evidence to criteria, and outputs markdown + docx
-6. **Tracks applications** in a CSV log, with automatic promotion of successful letters to the reference pool
+2. **Researches the company** — runs web searches for recent news, strategy, values, and culture to inform the letter
+3. **Parses the job description** into structured criteria (qualifications, skills, values, responsibilities)
+4. **Cross-references** each criterion against your materials, classifying matches as strong, partial, or missing
+5. **Fills gaps interactively** — asks you targeted questions about partial/no matches, with concrete framing suggestions
+6. **Drafts a cover letter** that matches your voice and tone (from your original letters), maps evidence to criteria, and saves as markdown for you to edit
+7. **Red teams the draft** — runs a critical self-review checking argument strength, voice authenticity, and tightness before presenting findings
+8. **Tracks applications** in a CSV log, with automatic promotion of successful letters to the reference pool
 
-Two modes: **Thorough** (full Q&A, best for high-priority applications) and **Fast** (minimal questions, good for bulk applications).
+Three modes:
+- **Thorough** — Full interactive Q&A, best for high-priority applications.
+- **Fast** — Minimal questions, uses best-available material, good for bulk applications.
+- **Review** — Critique an existing hand-written cover letter against the JD. Produces a coverage analysis, red team review, and targeted edits rather than a new draft.
 
 ## Prerequisites
 
