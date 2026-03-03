@@ -87,6 +87,7 @@ Read, in order:
 2. All files in `source-materials/cover-letters/original/`
 3. All files in `source-materials/cover-letters/successful/`
 4. The job description (using the appropriate extraction method)
+5. **Review mode only** — The user's cover letter from `applications/<folder>/cover-letter-draft.md`. This is the artifact under review — do NOT treat it as source material for voice matching.
 
 Do NOT read cover letters from individual `applications/` folders as source material — only use `original/` and `successful/` to prevent AI voice drift.
 
