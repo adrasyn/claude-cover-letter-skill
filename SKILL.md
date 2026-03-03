@@ -17,6 +17,32 @@ Generate a tailored cover letter by cross-referencing CVs, past cover letters, a
 - `applications/YYYY-MM-DD-company-role/` — Per-application output folder containing: `job-description.*`, `notes.md`, `research.md`, `cover-letter-draft.md` (Review mode only — the user's original letter), `cover-letter.md`, `cover-letter.docx`
 - `applications-log.csv` — Tracker: date, company, role, status, priority, folder, notes
 
+## Phase 0: First-Time Setup
+
+This phase runs silently before every session. If the workspace is already set up, it adds no output or delay.
+
+1. **Check for required structure** — verify all of the following exist:
+   - `source-materials/cv-short.docx`
+   - `source-materials/cv-long.docx`
+   - `source-materials/cover-letters/original/` (containing at least one file)
+   - `source-materials/cover-letters/successful/`
+   - `applications/`
+   - `applications-log.csv`
+
+2. **If everything exists** — skip to Phase 1 immediately (no output).
+
+3. **If anything is missing** — inform the user this looks like a fresh workspace and offer to set it up. Then:
+   - Create all missing directories: `source-materials/`, `source-materials/cover-letters/original/`, `source-materials/cover-letters/successful/`, `applications/`
+   - Create `applications-log.csv` with the header row if it doesn't exist:
+     ```
+     date,company,role,status,mode,folder,notes
+     ```
+   - Tell the user which files they still need to add manually:
+     - `source-materials/cv-short.docx` — Short CV (1-2 pages, the version submitted to employers)
+     - `source-materials/cv-long.docx` — Long CV (full academic/detailed history)
+     - At least one hand-written cover letter in `source-materials/cover-letters/original/`
+   - **Wait** for the user to confirm they've added their files before continuing to Phase 1.
+
 ## Phase 1: Startup
 
 1. Read `applications-log.csv`. Present the current contents to the user and ask: **"Is your applications log up to date? Any statuses to update before we begin?"** Wait for a response before continuing.
