@@ -65,19 +65,24 @@ This phase runs silently before every session. If the workspace is already set u
    - **Fast**: Minimal questions, uses best-available material, good for bulk applications.
    - **Review**: Critique an existing hand-written cover letter against the JD. Produces feedback and targeted edits rather than a new draft.
 
-4. Ask for the **job description**. Offer three options:
+4. **Thorough and Fast modes only** — Ask the user: **What structure would you like for your examples?**
+   - **STAR** (Situation, Task, Action, Result) — works well for government and structured applications.
+   - **Another format** — let the user specify (e.g. CAR, narrative, etc.).
+   - **Your call** — Claude decides based on the role and sector.
+
+5. Ask for the **job description**. Offer three options:
    - Paste the text directly
    - Provide a file path (`.html`, `.docx`, `.pdf`)
    - Provide a URL to fetch (if fetch fails, ask the user to paste the text or provide a downloaded file instead)
 
-5. Get the **company name** and **role title**. Use `$1` and `$2` from arguments if provided; otherwise ask.
+6. Get the **company name** and **role title**. Use `$1` and `$2` from arguments if provided; otherwise ask.
 
-6. Create the application folder: `applications/YYYY-MM-DD-<company>-<role>/` (slugified, lowercase, hyphens). Save the JD into it:
+7. Create the application folder: `applications/YYYY-MM-DD-<company>-<role>/` (slugified, lowercase, hyphens). Save the JD into it:
    - Pasted text: save as `job-description.md`
    - File: copy the original into the folder
    - URL: fetch with WebFetch and save as `job-description.html`
 
-7. **Review mode only** — Ask for the **existing cover letter** to review. Offer the same three input options as the JD:
+8. **Review mode only** — Ask for the **existing cover letter** to review. Offer the same three input options as the JD:
    - Paste the text directly
    - Provide a file path (`.html`, `.docx`, `.pdf`)
    - Provide a URL to fetch
@@ -225,7 +230,7 @@ After this phase, skip Phase 6 and proceed directly to Phase 7 (Wrap-up).
 Write the cover letter with these constraints:
 
 - **Voice and tone**: Match the user's original hand-written cover letters. These are the gold standard. Do NOT default to generic AI cover letter style.
-- **Structure**: Follow conventions from existing letters (greeting style, paragraph structure, sign-off).
+- **Example structure**: Use the structure chosen in Phase 1. If the user selected "Your call", choose based on the sector and role type (e.g. STAR for government, narrative for consulting/creative roles). Follow conventions from existing letters for greeting style, paragraph structure and sign-off.
 - **Content**: Map strong matches directly. Incorporate user's answers for partial/no matches. Weave in specific examples from the long CV where they strengthen the case.
 - **Length**: Match the length of the user's existing cover letters unless the job explicitly requests otherwise.
 - **Sector awareness**: Read the user's sector from `profile.md` and use the appropriate register. Match the tone to the sector (e.g. professional but not corporate-buzzwordy for government; concise and results-oriented for consulting; technical precision for tech roles).
