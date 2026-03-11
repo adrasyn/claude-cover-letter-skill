@@ -15,7 +15,7 @@ Generate a tailored cover letter by cross-referencing CVs, past cover letters, a
 - `source-materials/cover-letters/original/` — Hand-written cover letters (gold standard for voice and tone)
 - `source-materials/cover-letters/successful/` — Generated letters that landed interviews (supplementary reference)
 - `applications/YYYY-MM-DD-company-role/` — Per-application output folder containing: `job-description.*`, `notes.md`, `research.md`, `cover-letter-draft.md` (Review mode only — the user's original letter), `cover-letter.md`, `cover-letter.docx`
-- `applications-log.csv` — Tracker: date, company, role, status, priority, folder, notes
+- `applications-log.csv` — Tracker: date, company, role, closing, salary, grade, location, url, status, priority, folder, notes
 - `profile.md` — User profile (sector/field, created during first-time setup)
 
 ## Phase 0: First-Time Setup
@@ -272,9 +272,9 @@ Steps:
 
 ## Phase 7: Wrap-up
 
-1. Append a row to `applications-log.csv`:
+1. Update the existing row in `applications-log.csv` for this application (match by company and role). Set the `status` column to `draft`, the `priority` column to the mode used (`thorough`, `fast`, or `review`), and the `folder` column to the folder name created earlier. If no matching row exists, append a new row with all columns aligned to the CSV header (`date,company,role,closing,salary,grade,location,url,status,priority,folder,notes`):
    ```bash
-   echo "YYYY-MM-DD,\"<company>\",\"<role>\",draft,<thorough|fast|review>,<folder-name>," >> applications-log.csv
+   echo "YYYY-MM-DD,\"<company>\",\"<role>\",,,,,,draft,<thorough|fast|review>,<folder-name>," >> applications-log.csv
    ```
    Use today's actual date, the real company/role names, and the folder name created earlier.
 

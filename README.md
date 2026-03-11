@@ -56,9 +56,19 @@ source-materials/
     original/            # Your hand-written cover letters (gold standard for voice/tone)
     successful/          # Generated letters that landed interviews (auto-populated)
 applications/            # Per-application output folders (auto-created)
-applications-log.csv     # Application tracker (auto-created)
+applications-log.csv     # Application tracker (auto-created, see CSV format below)
 profile.md               # Your sector/field (auto-created during setup)
 ```
+
+### CSV tracker format
+
+The skill expects `applications-log.csv` with the following columns:
+
+```
+date,company,role,closing,salary,grade,location,url,status,priority,folder,notes
+```
+
+If your CSV has extra columns (e.g. for closing dates, salary, grade, location, URL), the skill will respect them when updating rows. The wrap-up phase updates existing rows in-place where possible, and only appends new rows with all columns correctly aligned.
 
 ## Usage
 
