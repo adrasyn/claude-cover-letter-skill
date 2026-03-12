@@ -1,0 +1,10 @@
+{
+  "name": "cover-letter",
+  "version": "1.0.0",
+  "description": "Interactive cover letter generator with research, gap analysis, and review modes",
+  "author": {
+    "name": "James Wilson"
+  },
+  "repository": "https://github.com/adrasyn/claude-cover-letter-skill",
+  "license": "MIT"
+}
