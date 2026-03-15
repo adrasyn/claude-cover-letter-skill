@@ -200,6 +200,7 @@ Run the same three-part critical review as Phase 6's Red Team Review, but assess
    - Flag vague or generic phrasing that could apply to any candidate.
    - Identify sentences that could be cut or combined without losing substance.
    - Check the opening and closing are strong — not boilerplate.
+   - Flag any emdashes (—) and replace with commas, semicolons, colons, parentheses, or separate sentences.
 
 Present findings as a numbered list of specific, actionable items referencing the relevant paragraph or sentence.
 
@@ -232,6 +233,7 @@ Write the cover letter with these constraints:
 - **Voice and tone**: Match the user's original hand-written cover letters. These are the gold standard. Do NOT default to generic AI cover letter style.
 - **Example structure**: Use the structure chosen in Phase 1. If the user selected "Your call", choose based on the sector and role type (e.g. STAR for government, narrative for consulting/creative roles). Follow conventions from existing letters for greeting style, paragraph structure and sign-off.
 - **Content**: Map strong matches directly. Incorporate user's answers for partial/no matches. Weave in specific examples from the long CV where they strengthen the case.
+- **No emdashes**: Never use emdashes (—) in the cover letter. Use commas, semicolons, colons, parentheses, or separate sentences instead.
 - **Length**: Match the length of the user's existing cover letters unless the job explicitly requests otherwise.
 - **Sector awareness**: Read the user's sector from `profile.md` and use the appropriate register. Match the tone to the sector (e.g. professional but not corporate-buzzwordy for government; concise and results-oriented for consulting; technical precision for tech roles).
 
